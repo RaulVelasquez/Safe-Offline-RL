@@ -285,17 +285,6 @@ safe_actions, violations = mask.update(agent_actions)
 
 ---
 
-## Citation
-
-```bibtex
-@article{atsc_offline2online_2026,
-  title   = {Safe-Guarded Offline-to-Online Deep Reinforcement Learning
-             for Adaptive Traffic Signal Control in Realistic Urban Corridors},
-  author  = {[Authors]},
-  journal = {[Conference/Journal]},
-  year    = {2026},
-}
-```
 
 ---
 
