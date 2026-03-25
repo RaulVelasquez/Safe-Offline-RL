@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Entornos virtuales
+venv/
+.env/
+.venv/
+
+# Checkpoints pesados (excluir de Git, incluir estructura)
+checkpoints/offline/*.pt
+checkpoints/online/*.pt
+!checkpoints/**/.gitkeep
+
+# Dataset generado (puede ser grande)
+data/offline_dataset/*.pkl
+!data/**/.gitkeep
+
+# LemgoRL clonado
+data/lemgo/
+
+# Resultados intermedios
+results/logs/
+*.log
+
+# Figuras EPS (archivos grandes, se generan con plot_results.py)
+*.eps
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Pytest cache
+.pytest_cache/
+.coverage
+htmlcov/

@@ -1,0 +1,110 @@
+{
+  "fixed_time": {
+    "n_episodes": 30,
+    "total_reward": {
+      "mean": -1886.39,
+      "std": 130.81
+    },
+    "avg_travel_time": {
+      "mean": 69.18,
+      "std": 4.83
+    },
+    "avg_queue_length": {
+      "mean": 6.766,
+      "std": 0.596
+    },
+    "throughput": {
+      "mean": 822.4,
+      "std": 78.9
+    },
+    "safety_violations": {
+      "total": 0,
+      "mean": 0.0
+    },
+    "improvement_vs_fixed": {
+      "reward_pct": 0.0,
+      "att_pct": 0.0
+    }
+  },
+  "actuated": {
+    "n_episodes": 30,
+    "total_reward": {
+      "mean": -1431.09,
+      "std": 74.09
+    },
+    "avg_travel_time": {
+      "mean": 52.47,
+      "std": 3.14
+    },
+    "avg_queue_length": {
+      "mean": 4.995,
+      "std": 0.324
+    },
+    "throughput": {
+      "mean": 964.2,
+      "std": 48.8
+    },
+    "safety_violations": {
+      "total": 0,
+      "mean": 0.0
+    },
+    "improvement_vs_fixed": {
+      "reward_pct": 24.1,
+      "att_pct": 24.2
+    }
+  },
+  "DT_offline": {
+    "n_episodes": 30,
+    "total_reward": {
+      "mean": -1297.75,
+      "std": 73.4
+    },
+    "avg_travel_time": {
+      "mean": 48.7,
+      "std": 2.73
+    },
+    "avg_queue_length": {
+      "mean": 4.173,
+      "std": 0.198
+    },
+    "throughput": {
+      "mean": 1010.3,
+      "std": 47.4
+    },
+    "safety_violations": {
+      "total": 0,
+      "mean": 0.0
+    },
+    "improvement_vs_fixed": {
+      "reward_pct": 31.2,
+      "att_pct": 29.6
+    }
+  },
+  "DT_online": {
+    "n_episodes": 30,
+    "total_reward": {
+      "mean": -1183.17,
+      "std": 50.62
+    },
+    "avg_travel_time": {
+      "mean": 45.09,
+      "std": 1.86
+    },
+    "avg_queue_length": {
+      "mean": 3.831,
+      "std": 0.116
+    },
+    "throughput": {
+      "mean": 1065.3,
+      "std": 50.3
+    },
+    "safety_violations": {
+      "total": 0,
+      "mean": 0.0
+    },
+    "improvement_vs_fixed": {
+      "reward_pct": 37.3,
+      "att_pct": 34.8
+    }
+  }
+}

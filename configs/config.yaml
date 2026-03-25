@@ -1,0 +1,87 @@
+# configs/config.yaml
+# ============================================================
+# Configuracion Global del Proyecto ATSC Offline-to-Online DRL
+# ============================================================
+#
+# WINDOWS: Las rutas usan "/" (no "\").
+#          Si LemgoRL no esta descargado, ejecuta primero:
+#            setup_windows.bat
+#          o corre solo la simulacion sintetica con:
+#            python main.py --phase sim
+#
+# LINUX/macOS: Ejecuta primero:
+#            bash scripts/setup_lemgorl.sh
+# ============================================================
+
+project:
+  name: "ATSC-SafeGuarded-Offline2Online"
+  seed: 42
+  device: "cuda"          # "cuda" | "cpu"
+
+# SUMO / LemgoRL ─────────────────────────────────────────────
+# El programa intenta detectar los archivos automaticamente en data/lemgo/
+env:
+  sumo_binary: "sumo"
+  net_file:    "data/lemgo/lemgo.net.xml"
+  route_file:  "data/lemgo/lemgo.rou.xml"
+  additional_file: "data/lemgo/lemgo.add.xml"
+  step_length: 1.0
+  yellow_time: 3
+  min_green: 5
+  max_green: 60
+  num_intersections: 4
+  obs_radius: 200
+
+# Dataset offline ─────────────────────────────────────────────
+dataset:
+  output_dir: "data/offline_dataset"
+  num_episodes_actuated: 500
+  num_episodes_fixed: 500
+  episode_length: 3600
+  save_every: 50
+
+# Decision Transformer ────────────────────────────────────────
+decision_transformer:
+  context_length: 20
+  n_layer: 4
+  n_head: 4
+  d_model: 128
+  d_inner: 512
+  dropout: 0.1
+  max_ep_len: 3600
+  target_return: -50.0
+
+# Entrenamiento Offline ───────────────────────────────────────
+offline_train:
+  batch_size: 64
+  num_epochs: 100
+  lr: 0.0001
+  weight_decay: 0.0001
+  grad_clip: 1.0
+  eval_interval: 10
+  checkpoint_dir: "checkpoints/offline"
+
+# Safety / Action Masking ────────────────────────────────────
+safety:
+  min_intergreen: 3
+  min_green: 5
+  max_consecutive_red: 120
+  phase_skip_penalty: -100.0
+
+# Fine-tuning Online ──────────────────────────────────────────
+online_finetune:
+  num_episodes: 200
+  update_freq: 10
+  lr: 0.00005
+  checkpoint_dir: "checkpoints/online"
+  load_from: "checkpoints/offline/best_model.pt"
+
+# Metricas ────────────────────────────────────────────────────
+metrics:
+  output_dir: "results"
+  baselines: ["fixed_time", "actuated"]
+  kpis:
+    - average_travel_time
+    - queue_length
+    - safety_violations
+    - throughput
