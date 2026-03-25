@@ -69,7 +69,7 @@ ATSC_Project/
 +------------------------------------------------------------------+
 |  PHASE I: Offline Pre-training                                   |
 |                                                                  |
-|  SUMO + LemgoRL --> FixedTime/Actuated --> Dataset (1000 ep)    |
+|  SUMO + LemgoRL --> FixedTime/Actuated --> Dataset (1000 ep)     |
 |                                   |                              |
 |                                   v                              |
 |                        Decision Transformer                      |
@@ -81,16 +81,16 @@ ATSC_Project/
 +------------------------------------------------------------------+
 |  PHASE II: Safety + Coordination                                 |
 |                                                                  |
-|  Action Masking --> min_green=5s, intergreen=3s, max_red=120s   |
-|  Corridor Coordinator --> Green Wave offsets [0,14,28,43]s      |
+|  Action Masking --> min_green=5s, intergreen=3s, max_red=120s    |
+|  Corridor Coordinator --> Green Wave offsets [0,14,28,43]s       |
 +-----------------------------+------------------------------------+
                               | model + shield
                               v
 +------------------------------------------------------------------+
 |  PHASE III: Online Fine-tuning + Benchmarking                    |
 |                                                                  |
-|  200 online episodes --> FIFO replay --> last 2 layers          |
-|  Benchmark: Fixed-time vs Actuated vs DT-offline vs DT-online   |
+|  200 online episodes --> FIFO replay --> last 2 layers           |
+|  Benchmark: Fixed-time vs Actuated vs DT-offline vs DT-online    |
 +------------------------------------------------------------------+
 ```
 
